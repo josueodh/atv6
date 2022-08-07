@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Tarefas')" />
+
+<body>
+    <header th:replace="layout-padrao::header(titulo='Tarefas')" />
+    <nav th:fragment="acoes">
+        <div class="container">
+            <ul>
+                <li><a href="./listar.html">Listar</a></li>
+                <li><a href="./nova.html">Criar</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>

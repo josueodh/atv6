@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Listar Tarefas')" />
+
+<body>
+    <header th:replace="layout-padrao::header(titulo='Listar Tarefas')" />
+    <div class="container">
+        <a href="./nova.html">Adicionar Novo</a>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Tomato</th>
+                <th>Ações</th>
+            </tr>
+            <tr th:each="tarefa: ${tarefas}" th:object="${tarefa}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{titulo}"></td>
+                <td th:text="*{tomato}"></td>
+                <td style="display: flex;">
+                    <a class="btn btn-primary me-2" th:href="@{./editar/{id}(id=*{id})}" th:text="Editar"></a>
+                    <a class="btn btn-danger" th:href="@{./excluir/{id}(id=*{id})}" th:text="Excluir"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

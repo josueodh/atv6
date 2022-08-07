@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Listar Usuários')" />
+
+<body>
+    <header th:replace="layout-padrao::header(titulo='Usuários')" />
+    <div class="container">
+        <a href="./novo.html">Adicionar Novo</a>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Senha</th>
+                <th>Ações</th>
+            </tr>
+            <tr th:each="usuario: ${usuarios}" th:object="${usuario}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{nome}"></td>
+                <td th:text="*{password}"></td>
+                <td style="display: flex;">
+                    <a class="btn btn-primary me-2" th:href="@{./editar/{id}(id=*{id})}" th:text="Editar"></a>
+                    <a class="btn btn-danger" th:href="@{./excluir/{id}(id=*{id})}" th:text="Excluir"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

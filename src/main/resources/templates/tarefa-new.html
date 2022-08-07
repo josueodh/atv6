@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layout-padrao::head(titulo='Nova Tarefa')" />
+
+<body>
+    <header th:replace="layout-padrao::header(titulo='Nova Tarefa')" />
+    <div class="container">
+        <form th:action="@{nova.html}" method="post" th:object="${tarefa}">
+            <div class="mb-3">
+                <label class="form-label" for="">Título </label>
+                <input class="form-control" type="text" id="titulo" placeholder="Título" th:field="${tarefa.titulo}">
+                <strong th:if="${#fields.hasErrors('titulo')}" th:errors="${tarefa.titulo}"></strong>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="">Tomato </label>
+                <input class="form-control" type="number" id="tomato" placeholder="Tomato" th:field="${tarefa.tomato}">
+                <strong th:if="${#fields.hasErrors('tomato')}" th:errors="${tarefa.tomato}"></strong>
+            </div>
+            <div>
+                <input type="submit" value="Cadastrar" class="btn btn-secondary float-end">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head th:replace="layout-padrao::head(titulo='Editar Tarefa')" />
+
+<body>
+    <header th:replace="layout-padrao::header(titulo='Editar Tarefa')" />
+    <div class="container">
+        <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${tarefa}">
+            <div>
+                <label class="form-label">Título </label>
+                <input class="form-control" type="text" id="titulo" placeholder="Título" th:field="${tarefa.titulo}">
+                <strong th:if="${#fields.hasErrors('titulo')}" th:errors="${tarefa.titulo}"></strong>
+            </div>
+            <div>
+                <label for="" class="form-label">Tomato </label>
+                <input class="form-control" type="number" id="tomato" placeholder="Tomato" th:field="${tarefa.tomato}">
+                <strong th:if="${#fields.hasErrors('tomato')}" th:errors="${tarefa.tomato}"></strong>
+            </div>
+            <div>
+                <input type="submit" value="Editar" class="btn btn-secondary float-end">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
